@@ -32,4 +32,4 @@ jobs:
         done
 
     - name: Run tests with PHPUnit
-      run: vendor/bin/phpunit --testdox
+      run: php vendor/bin/phpunit --testdox
