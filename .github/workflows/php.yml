@@ -19,14 +19,17 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.2'
-        extensions: mbstring, intl
+        extensions: mbstring, intl, mysqli
         coverage: none
 
     - name: Install dependencies
       run: composer install --no-progress --prefer-dist
 
     - name: Validate PHP syntax
-      run: php -l $(find . -type f -name "*.php")
+      run: |
+        for file in $(find . -type f -name "*.php"); do
+          php -l $file || exit 1
+        done
 
     - name: Run tests with PHPUnit
       run: vendor/bin/phpunit --testdox
