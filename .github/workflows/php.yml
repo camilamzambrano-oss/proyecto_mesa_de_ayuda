@@ -32,4 +32,5 @@ jobs:
 
       - name: Run tests with PHPUnit
         # Esta es la corrección: usar el ejecutable correcto
-        run: ./vendor/bin/phpunit --testdox
+        run: php ./vendor/bin/phpunit --testdox
+
