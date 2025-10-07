@@ -34,21 +34,21 @@ jobs:
         # Esta es la corrección: usar el ejecutable correcto
         run: php ./vendor/bin/phpunit --testdox
 
-deploy:
-  needs: build
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/main'
 
-  steps:
-    - name: 📥 Checkout code
-      uses: actions/checkout@v3
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
-    - name: 🚀 Deploy to InfinityFree via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ${{ secrets.FTP_PATH }}
-        local-dir: ./
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
 
+      - name: 🚀 Deploy to InfinityFree via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          local-dir: ./
