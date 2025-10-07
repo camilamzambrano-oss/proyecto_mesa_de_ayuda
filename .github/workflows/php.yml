@@ -41,10 +41,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🚀 Deploy to InfinityFree via FTP
+      - name: Deploy to InfinityFree via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
