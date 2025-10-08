@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $servidor = "sql306.infinityfree.com";
 $usuario = "if0_40113229"; 
 $clave = "bucaramangaSAN1";       
