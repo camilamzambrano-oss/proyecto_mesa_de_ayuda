@@ -52,10 +52,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
           local-dir: ./
-          protocol: ftp
-          port: 21
-          timeout: 600
-          exclude: |
-            **/.git*
-            **/.github*
-            **/README.md
+          
